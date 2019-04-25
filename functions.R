@@ -35,21 +35,48 @@ re_formula=list(
 
 #### formlulas for fixed effects ####
 
+# # fully specified up to a four-way interaction
+# fe_formula=list(
+#   null = " ~ 1",
+#   c =  " ~ congruent",
+#   e =  " ~ emotional",
+#   s =  " ~ sleepy",
+#   u =  " ~ update",
+#   ce =  " ~ congruent*emotional",
+#   cs =  " ~ congruent*sleepy",
+#   cu =  " ~ congruent*update",
+#   es =  " ~ emotional*sleepy",
+#   eu =  " ~ emotional*update",
+#   su =  " ~ sleepy*update",
+#   ces =  " ~ congruent*emotional*sleepy",
+#   ceu =  " ~ congruent*emotional*update",
+#   csu =  " ~ congruent*sleepy*update",
+#   esu =  " ~ emotional*sleepy*update",
+#   cesu = " ~ congruent*emotional*sleepy*update"
+# )
+
+## Note on naming: Effects specified before any underscore are fully specified (all main effects + interactions)
+## effects after a single underscore describe interactions, after a double underscore main effects
+
 fe_formula=list(
   null = " ~ 1",
   c =  " ~ congruent",
   e =  " ~ emotional",
   s =  " ~ sleepy",
   u =  " ~ update",
-  ce =  " ~ congruent*emotional",
+  c__e =  " ~ congruent + emotional",
+  s__e =  " ~ sleepy + emotional",
+  u__e =  " ~ update + emotional",
   cs =  " ~ congruent*sleepy",
   cu =  " ~ congruent*update",
-  es =  " ~ emotional*sleepy",
-  eu =  " ~ emotional*update",
   su =  " ~ sleepy*update",
-  ces =  " ~ congruent*emotional*sleepy",
-  ceu =  " ~ congruent*emotional*update",
+  cs__e =  " ~ congruent*sleepy + emotional",
+  cu__e =  " ~ congruent*update + emotional",
+  su__e =  " ~ sleepy*update + emotional",
+  cs__ue =  " ~ congruent*sleepy + emotional + update",
+  cu__es =  " ~ congruent*update + emotional + sleepy",
+  su__ce =  " ~ sleepy*update + congruent + emotional",
   csu =  " ~ congruent*sleepy*update",
-  esu =  " ~ emotional*sleepy*update",
+  csu__e =  " ~ congruent*sleepy*update + emotional",
   cesu = " ~ congruent*emotional*sleepy*update"
 )
