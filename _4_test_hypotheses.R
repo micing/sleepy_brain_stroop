@@ -11,7 +11,7 @@ star = function(p) {
 
 tidy_model = function(m, d, t, l) {
   m %>% broom::tidy() %>% mutate(model=row_number()) %>%
-    select("model", "term", "AIC", "logLik", "df", "p.value") %>% 
+    select("model", "term", "logLik", "df", "p.value") %>% 
     pivot_wider(names_from=model, values_from=term:p.value) %>%
     mutate(dv=d, label = l, test=t) %>% select(dv, test, label, everything()) %>% 
     select(-p.value_1, -df_1) %>% rename(df=df_2, p.value=p.value_2) %>%

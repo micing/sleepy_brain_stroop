@@ -2,8 +2,8 @@ library(tidyverse)
 
 load("./data/datasets/sleepy_brain_stroop_data.RDta")
 
-height=150
-width= 180
+height=100
+width= 120
 
 ##### Functions #####
 
