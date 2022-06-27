@@ -2,8 +2,9 @@ library(tidyverse)
 
 load("./data/datasets/sleepy_brain_stroop_data.RDta")
 
-height=100
-width= 120
+height=80
+width= 100
+text_size=7
 
 ##### Functions #####
 
@@ -74,7 +75,7 @@ p = d %>% ggplot(aes(x = interaction(congruent, update), y = mean_rt, fill = fac
   geom_errorbar(aes(ymax = mean_rt + se_rt, ymin = mean_rt - se_rt), position = dodge, width = 0.2) +
   theme_minimal() +
   facet_wrap(~emotional) +
-  ggtitle("Mean reaction time (RT)")
+  ggtitle("Mean reaction time (RT)") + theme(text=element_text(size=text_size))
 plot(p)
 ggsave("figures/rt.png", width=width, height=height, units="mm")
 
@@ -84,7 +85,7 @@ p = d %>% ggplot(aes(x = interaction(congruent, update), y = mean_rt_log - c, fi
   geom_errorbar(aes(ymax = mean_rt_log - c + se_rt_log, ymin = mean_rt_log - c - se_rt_log), position = dodge, width = 0.2) +
   theme_minimal() +
   facet_wrap(~emotional) +
-  ggtitle(paste0("Mean (log) reaction time (RT) + constant = ", c))
+  ggtitle(paste0("Mean (log) reaction time (RT) + constant = ", c)) + theme(text=element_text(size=text_size)) 
 plot(p)
 ggsave("figures/rt_log.png", width=width, height=height, units="mm")
 
@@ -94,7 +95,7 @@ p = d %>% ggplot(aes(x = interaction(congruent, update), y = mean_sd_rt - c, fil
   geom_errorbar(aes(ymax = mean_sd_rt + se_sd_rt, ymin = mean_sd_rt - se_sd_rt), position = dodge, width = 0.2) +
   theme_minimal() +
   facet_wrap(~emotional) +
-  ggtitle("Reaction time variability (SD of RT)")
+  ggtitle("Reaction time variability (SD of RT)") + theme(text=element_text(size=text_size))
 plot(p)
 ggsave("figures/sd_rt.png", width=width, height=height, units="mm")
 
@@ -104,7 +105,7 @@ p = d %>% ggplot(aes(x = interaction(congruent, update), y = mean_sd_rt_log - c,
   geom_errorbar(aes(ymax = mean_sd_rt_log - c + se_sd_rt_log, ymin = mean_sd_rt_log - c - se_sd_rt_log), position = dodge, width = 0.2) +
   theme_minimal() +
   facet_wrap(~emotional) +
-  ggtitle(paste0("Reaction time variability (SD of log RT) + constant = ", c))
+  ggtitle(paste0("Reaction time variability (SD of log RT) + constant = ", c)) + theme(text=element_text(size=text_size))
 plot(p)
 ggsave("figures/sd_rt_log.png", width=width, height=height, units="mm")
 
@@ -114,7 +115,7 @@ p = d %>% ggplot(aes(x = interaction(congruent, update), y = mean_rt_log_abs_dev
   geom_errorbar(aes(ymax = mean_rt_log_abs_dev - c + se_rt_log_abs_dev, ymin = mean_rt_log_abs_dev - c - se_rt_log_abs_dev), position = dodge, width = 0.2) +
   theme_minimal() +
   facet_wrap(~emotional) +
-  ggtitle(paste0("Reaction time variability + constant = ", c, "\n(absolute deviation from mean log RT)"))
+  ggtitle(paste0("Reaction time variability + constant = ", c, "\n(absolute deviation from mean log RT)")) + theme(text=element_text(size=text_size))
 plot(p)
 ggsave("figures/rt_log_abs_dev.png", width=width, height=height, units="mm")
 
@@ -123,7 +124,7 @@ p = d %>% ggplot(aes(x = interaction(congruent, update), y = mean_error, fill = 
   geom_errorbar(aes(ymax =  mean_error + se_error, ymin = mean_error - se_error), position = dodge, width = 0.2) +
   theme_minimal() +
   facet_wrap(~emotional) +
-  ggtitle("Proportion wrong responses")
+  ggtitle("Proportion wrong responses") + theme(text=element_text(size=text_size))
 plot(p)
 ggsave("figures/error.png", width=width, height=height, units="mm")
 
@@ -132,7 +133,7 @@ p = d %>% ggplot(aes(x = interaction(congruent, update), y = mean_late, fill = f
   geom_errorbar(aes(ymax =  mean_late + se_late, ymin = mean_late - se_late), position = dodge, width = 0.2) +
   theme_minimal() +
   facet_wrap(~emotional) +
-  ggtitle("Proportion late (>20000) responses")
+  ggtitle("Proportion late (>20000) responses") + theme(text=element_text(size=text_size))
 plot(p)
 ggsave("figures/late.png", width=width, height=height, units="mm")
 
@@ -141,7 +142,7 @@ p = d %>% ggplot(aes(x = interaction(congruent, update), y = mean_early, fill = 
   geom_errorbar(aes(ymax =  mean_early + se_early, ymin = mean_early - se_early), position = dodge, width = 0.2) +
   theme_minimal() +
   facet_wrap(~emotional) +
-  ggtitle("Proportion early (<4000) responses")
+  ggtitle("Proportion early (<4000) responses") + theme(text=element_text(size=text_size))
 plot(p)
 ggsave("figures/early.png", width=width, height=height, units="mm")
 
