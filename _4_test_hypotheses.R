@@ -1,26 +1,44 @@
-#### Test hypotheses ####
+library("tidyverse")
 
-load("sleepy_brain_stroop_main_models.RDta")
-m=models
+#### functions ####
 
-# Any effect of sleep deprivation
+star = function(p) {
+  if (p <.001) return("***")
+  if (p <.01) return("**")
+  if (p <.05) return("*")
+  return("")
+}
 
-# reduced model (only main effect)
-anova(m$rt$s, m$rt$null)
-anova(m$error$s, m$error$null)
-anova(m$rt_log$s, m$rt_log$null)
+tidy_model = function(m, d, t, l) {
+  m %>% broom::tidy() %>% mutate(model=row_number()) %>%
+    select("model", "term", "AIC", "logLik", "df", "p.value") %>% 
+    pivot_wider(names_from=model, values_from=term:p.value) %>%
+    mutate(dv=d, label = l, test=t) %>% select(dv, test, label, everything()) %>% 
+    select(-p.value_1, -df_1) %>% rename(df=df_2, p.value=p.value_2) %>%
+    mutate(star = star(p.value))
+}
 
-# full model but only main effect of sleepiness
-anova(m$rt$cu__e, m$rt$cu__es)
-anova(m$error$cu__e, m$error$cu__es)
-anova(m$rt_log$cu__e, m$rt_log$cu__es)
+#### Test hypotheses (likelihood ratio tests) ####
 
-# full model (three-way interaction with sleepiness)
-anova(m$rt$csu__e, m$rt$cu__es)
-anova(m$error$csu__e, m$error$cu__es)
-anova(m$rt_log$csu__e, m$rt_log$cu__es)
+dvs = c("rt", "rt_log", "sd_rt", "sd_rt_log", "rt_log_abs_dev", "error", "late", "early")
+#dvs = "rt"
 
+lr_test= tibble()
 
+for (dv in dvs) {
+  load(paste0("sleepy_brain_stroop_main_models_", dv, ".RDta"))
+  for (test in c("neutral", "emotional")) {
+    m=models[[dv]][[test]]
+    lr_test = lr_test %>% bind_rows(
+      anova(m$cu$cu, m$cu_s$cu) %>% tidy_model(dv, test, "sleepy"),
+      anova(m$cu_s$cus, m$cu_cs$cus) %>% tidy_model(dv, test, "sleepy*congruent"),
+      anova(m$cu_s$cus, m$cu_us$cus) %>% tidy_model(dv, test, "sleepy*update"),
+      anova(m$cu_cs_us$cus, m$cus$cus) %>% tidy_model(dv, test, "sleepy*congruent*update"))
+  }
+}
 
+lr_test %>% print()
+lr_test %>% write_tsv("tables/main_hypotheses_lr_test.tsv")
 
+t = lr_test
 
