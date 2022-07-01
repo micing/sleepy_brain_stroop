@@ -3,7 +3,7 @@
 Michael Ingre
 2022-06-28
 
-### Introduction
+## Introduction
 This document describes the analytical process and summarises early results on stroop data from the sleepy brain project, waves 2/3.
 
 This study has four design factors and in data they have been 0/1 coded and given names to interpret the condition indicated by 1. *Sleepy* refers to the sleep deprived condition (vs full sleep condition), *emotional* refers to stimuli with emotional content (vs neutral), *congruent* refers to stimuli that is congruent in colour and text (vs incongruent) and *update* refers to the previous stimulus and whether the current stimulus is an update of the congruent/incongruent status or if the congruence has changed. 
@@ -18,7 +18,7 @@ A three-way interaction (sleepy X congruent X update) was also hypothesised, whe
 
 For completeness, any two-way interaction with sleep deprivation and congruence/update was also tested, and results were also reported for response errors, late responses (> 2 sec) and early responses (< .4 sec).
 
-### Statistical analysis
+## Statistical analysis
 Data were analysed in R (4.1.2) applying the lmer and glmer functions in the lme4 package for mixed effect models <sup>2</sup> . [Code and data can be found here](https://github.com/micing/sleepy_brain_stroop)
 
 Reaction time (RT) was analysed using two different models. Raw RT data was fitted with a generalised linear mixed model (GMM) applying a log link and gamma error distribution, to account for the skewed distribution that is typical for reaction times. A linear mixed model (LMM) was also fitted on the logarithm of RT. 
@@ -31,7 +31,7 @@ A model fitting procedure was developed for likelihood ratio testing that starte
 
 Finally, one degree of freedom likelihood ratio tests were applied to test for the main (fixed) effect of *sleepy* and its two- and three-way interactions with *congruent* and *update*. 
 
-### Results
+## Results
 For the neutral test, we observed main effects of sleep deprivation on RT and RTV but not on errors, early or late responses. No interactions were observed on the neutral test.
 
 On the emotional test there was a main effect of sleep deprivation on errors, early and late responses. Furthermore, there were two-way interactions (sleepy X update) on early and late responses. No three way interaction was observed.
@@ -40,7 +40,7 @@ On the emotional test there was a main effect of sleep deprivation on errors, ea
 
 [Descriptive data can be found here.](https://github.com/micing/sleepy_brain_stroop/tree/master/figures)
 
-### References
+## References
 1.	Floros, O. et al. Vulnerability in Executive Functions to Sleep Deprivation Is Predicted by Subclinical Attention-Deficit/Hyperactivity Disorder Symptoms. Biol Psychiatry Cogn Neurosci Neuroimaging 6, 290–298 (2021).
 2.	Bates, D., Mächler, M., Bolker, B. & Walker, S. Fitting Linear Mixed-Effects Models Using lme4. Journal of Statistical Software vol. 67 1–48 (2015).
 
