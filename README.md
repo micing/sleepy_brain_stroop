@@ -10,9 +10,9 @@ This study has four design factors and in data they have been 0/1 coded and give
 
 The congruence status of previous and current stimulus is sometimes indicated by the letters *C* and *I* in this text, for congruent stimuli with or without update (cC, iC) and similarly for incongruent stimuli (iI, cI).
 
-In order to reduce the number of factors and interactions, *emotional* and *neutral* conditions have been analysed separately as two different tests. This leaves three factors in the main design of the study: sleepy, congruent and update.
+In order to reduce the number of factors and interactions, *emotional* and *neutral* conditions have been analysed separately as two different tests. This leaves three factors in the main design of the study: *sleepy*, *congruent* and *update*.
 
-The main hypothesis was that sleep deprivation would increase reaction time (RT) and reaction time variability (RTV) on the Stroop test. This hypothesis was modelled as a main effect of sleepy.
+The main hypothesis was that sleep deprivation would increase reaction time (RT) and reaction time variability (RTV) on the Stroop test. This hypothesis was modelled as a main effect of *sleepy*.
 
 A three-way interaction (sleepy X congruent X update) was also hypothesised, where primarily RTV would increase in the sleep deprived condition after an incongruent stimuli without update (cI), but not (or to a lesser degree) after a congruent stimuli with update (cC). This was based on a previously published report <sup>1</sup>, but careful analysis of the methods used there suggests that the results did not describe a proper three-way interaction on RTV, but rather the combined variance of both cI and cC conditions. The combining of variances occurred when a difference score was calculated in raw data and subsequently used as a dependent variable in the analysis. Thus, these results are suggestive of a more general effect on RTV, in two of the four possible conditions, and since they combined the conditions with highest (cI) and lowest expected variance (cC), the observations are probably more consistent with the hypothesis of a main effect (across all conditions) of sleep deprivation on RTV presented above.
 
