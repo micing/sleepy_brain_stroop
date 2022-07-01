@@ -34,7 +34,7 @@ Finally, one degree of freedom likelihood ratio tests were applied to test for t
 ### Results
 For the neutral test, we observed main effects of sleep deprivation on RT and RTV but not on errors, early or late responses. No interactions were observed on the neutral test.
 
-On the emotional test there was a main effect of sleep deprivation on errors, early and late responses. Furthermore, there were two-way interactions (sleepy x update) on early and late responses. No three way interaction was observed.
+On the emotional test there was a main effect of sleep deprivation on errors, early and late responses. Furthermore, there were two-way interactions (sleepy X update) on early and late responses. No three way interaction was observed.
 
 [A table summarising the likelihood ratio tests of all hypotheses can be found here.](https://github.com/micing/sleepy_brain_stroop/blob/master/tables/main_hypotheses_lr_test.tsv)
 
